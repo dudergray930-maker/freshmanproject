@@ -16,155 +16,232 @@
     <span class="tagline">THE ROUND, REIMAGINED</span>
   </header>
 
-  <main class="layout">
-    <section class="intro">
-      <p class="eyebrow">YOUR NEXT ROUND STARTS HERE</p>
-      <h1>Make every<br><em>hole a story.</em></h1>
-      <p class="lede">A fresh challenge. A little twist. A round your group will remember.</p>
-      <div class="steps">
-        <span class="step-active">01 <b>Set the vibe</b></span>
-        <span>02 <b>Play the hole</b></span>
-        <span>03 <b>Settle the score</b></span>
-      </div>
-    </section>
-
-    <section class="panel" aria-labelledby="setup-heading">
-      <div class="panel-head">
-        <div>
-          <p class="eyebrow">CHALLENGE GENERATOR</p>
-          <h2 id="setup-heading">Set up your hole</h2>
+  <main>
+    <div class="layout">
+      <section class="intro">
+        <p class="eyebrow">YOUR NEXT ROUND STARTS HERE</p>
+        <h1>Make every<br><em>hole a story.</em></h1>
+        <p class="lede">A fresh challenge. A little twist. A round your group will remember.</p>
+        <div class="steps">
+          <span class="step-active">01 <b>Set the vibe</b></span>
+          <span>02 <b>Play the hole</b></span>
+          <span>03 <b>Settle the score</b></span>
         </div>
-        <span class="spark" aria-hidden="true">✳</span>
-      </div>
-
-      <form id="challenge-form">
-        <label>Game mode</label>
-        <div class="mode-options">
-          <label class="mode-card">
-            <input type="radio" name="mode" value="classic" checked>
-            <span><strong>Classic</strong><small>A balanced challenge</small></span>
-          </label>
-          <label class="mode-card">
-            <input type="radio" name="mode" value="chaos">
-            <span><strong>Chaos Mode</strong><small>Stack extra twists</small></span>
-          </label>
-          <label class="mode-card">
-            <input type="radio" name="mode" value="one_club">
-            <span><strong>One-Club</strong><small>Play with one club</small></span>
-          </label>
-          <label class="mode-card">
-            <input type="radio" name="mode" value="team_battle">
-            <span><strong>Team Battle</strong><small>Compete as two teams</small></span>
-          </label>
-          <label class="mode-card">
-            <input type="radio" name="mode" value="skill_builder">
-            <span><strong>Skill Builder</strong><small>Practice one skill</small></span>
-          </label>
-        </div>
-
-        <div class="mode-fields" id="one-club-fields" hidden>
-          <label for="club">Your one club for the round</label>
-          <select id="club" name="club">
-            <option value="random">Choose one for me</option>
-            <option value="Driver">Driver</option>
-            <option value="3-wood">3-wood</option>
-            <option value="5-iron">5-iron</option>
-            <option value="7-iron">7-iron</option>
-            <option value="9-iron">9-iron</option>
-            <option value="Pitching wedge">Pitching wedge</option>
-            <option value="Sand wedge">Sand wedge</option>
-            <option value="Putter">Putter</option>
-          </select>
-        </div>
-
-        <div class="mode-fields" id="team-fields" hidden>
-          <label for="team-a">Team names</label>
-          <div class="fields">
-            <input id="team-a" name="team-a" maxlength="24" value="Team A" aria-label="Team A name">
-            <input id="team-b" name="team-b" maxlength="24" value="Team B" aria-label="Team B name">
-          </div>
-        </div>
-
-        <div class="fields">
-          <div>
-            <label for="category">Challenge category</label>
-            <select id="category" name="category">
-              <option value="any">Surprise me</option>
-              <option value="accuracy">Accuracy</option>
-              <option value="creativity">Creativity</option>
-              <option value="club_strategy">Club strategy</option>
-              <option value="putting">Putting</option>
-              <option value="approach">Approach play</option>
-            </select>
-          </div>
-          <div>
-            <label for="difficulty">Difficulty</label>
-            <select id="difficulty" name="difficulty">
-              <option value="any">Any level</option>
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
-            </select>
-          </div>
-        </div>
-
-        <div id="modifier-controls">
-          <label for="modifier-count">
-            Number of modifiers
-            <span class="hint" id="modifier-hint">(Choose 0 to 3)</span>
-          </label>
-          <select id="modifier-count" name="modifier-count">
-            <option value="0">No modifiers</option>
-            <option value="1" selected>1 modifier</option>
-            <option value="2">2 modifiers</option>
-            <option value="3">3 modifiers</option>
-          </select>
-        </div>
-
-        <p class="error" id="error-message" role="alert" hidden></p>
-        <button class="generate" type="submit">
-          Deal me a challenge <span aria-hidden="true">↗</span>
-        </button>
-      </form>
-
-      <section class="result" id="result" aria-live="polite" aria-labelledby="result-title" hidden>
-        <div class="result-kicker">
-          <span id="result-mode"></span>
-          <span id="result-category"></span>
-        </div>
-
-        <div class="challenge-title">
-          <div>
-            <p class="eyebrow">YOUR CHALLENGE</p>
-            <h3 id="result-title"></h3>
-          </div>
-          <span class="difficulty" id="result-difficulty"></span>
-        </div>
-
-        <p class="description" id="result-description"></p>
-        <div class="mode-instruction" id="mode-instruction" hidden></div>
-
-        <div class="bonus">
-          <span>✦</span>
-          <div>
-            <strong>Bonus opportunity</strong>
-            <p id="result-bonus"></p>
-          </div>
-        </div>
-
-        <div id="modifier-results" hidden>
-          <h4>Hole modifiers</h4>
-          <div class="modifier-list" id="modifier-list"></div>
-          <p class="points-total" id="points-total"></p>
-        </div>
-
-        <button class="again" id="generate-again" type="button">
-          ↻ &nbsp; Generate another
-        </button>
       </section>
 
-      <p class="safety-note">
-        Keep every challenge safe, course-legal, and friendly to your group.
+      <section class="panel" aria-labelledby="setup-heading">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">CHALLENGE GENERATOR</p>
+            <h2 id="setup-heading">Set up your hole</h2>
+          </div>
+          <span class="spark" aria-hidden="true">✳</span>
+        </div>
+
+        <form id="challenge-form">
+          <label>Game mode</label>
+
+          <div class="mode-options">
+            <label class="mode-card">
+              <input type="radio" name="mode" value="classic" checked>
+              <span><strong>Classic</strong><small>A balanced challenge</small></span>
+            </label>
+            <label class="mode-card">
+              <input type="radio" name="mode" value="chaos">
+              <span><strong>Chaos Mode</strong><small>Stack extra twists</small></span>
+            </label>
+            <label class="mode-card">
+              <input type="radio" name="mode" value="one_club">
+              <span><strong>One-Club</strong><small>Play with one club</small></span>
+            </label>
+            <label class="mode-card">
+              <input type="radio" name="mode" value="team_battle">
+              <span><strong>Team Battle</strong><small>Compete as two teams</small></span>
+            </label>
+            <label class="mode-card">
+              <input type="radio" name="mode" value="skill_builder">
+              <span><strong>Skill Builder</strong><small>Practice one skill</small></span>
+            </label>
+          </div>
+
+          <div class="mode-fields" id="one-club-fields" hidden>
+            <label for="club">Your one club for the round</label>
+            <select id="club" name="club">
+              <option value="random">Choose one for me</option>
+              <option>Driver</option>
+              <option>3-wood</option>
+              <option>5-iron</option>
+              <option>7-iron</option>
+              <option>9-iron</option>
+              <option>Pitching wedge</option>
+              <option>Sand wedge</option>
+              <option>Putter</option>
+            </select>
+          </div>
+
+          <div class="mode-fields" id="team-fields" hidden>
+            <label for="team-a">Battle teams</label>
+            <div class="fields">
+              <select id="team-a" aria-label="First battle team">
+                <option value="">Team A — select a team</option>
+              </select>
+              <select id="team-b" aria-label="Second battle team">
+                <option value="">Team B — select a team</option>
+              </select>
+            </div>
+            <p class="small-note">Create teams and assign players in Group Setup below.</p>
+          </div>
+
+          <div class="fields">
+            <div>
+              <label for="category">Challenge category</label>
+              <select id="category">
+                <option value="any">Surprise me</option>
+                <option value="accuracy">Accuracy</option>
+                <option value="creativity">Creativity</option>
+                <option value="club_strategy">Club strategy</option>
+                <option value="putting">Putting</option>
+                <option value="approach">Approach play</option>
+              </select>
+            </div>
+            <div>
+              <label for="difficulty">Difficulty</label>
+              <select id="difficulty">
+                <option value="any">Any level</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="modifier-controls">
+            <label for="modifier-count">
+              Number of modifiers
+              <span class="hint" id="modifier-hint">(Choose 0 to 3)</span>
+            </label>
+            <select id="modifier-count">
+              <option value="0">No modifiers</option>
+              <option value="1" selected>1 modifier</option>
+              <option value="2">2 modifiers</option>
+              <option value="3">3 modifiers</option>
+            </select>
+          </div>
+
+          <p class="error" id="error-message" role="alert" hidden></p>
+          <button class="generate" type="submit">
+            Deal me a challenge <span aria-hidden="true">↗</span>
+          </button>
+        </form>
+
+        <section class="result" id="result" aria-live="polite" aria-labelledby="result-title" hidden>
+          <div class="result-kicker">
+            <span id="result-mode"></span>
+            <span id="result-category"></span>
+          </div>
+
+          <div class="challenge-title">
+            <div>
+              <p class="eyebrow">YOUR CHALLENGE</p>
+              <h3 id="result-title"></h3>
+            </div>
+            <span class="difficulty" id="result-difficulty"></span>
+          </div>
+
+          <p class="description" id="result-description"></p>
+          <div class="mode-instruction" id="mode-instruction" hidden></div>
+
+          <div class="bonus">
+            <span>✦</span>
+            <div>
+              <strong>Bonus opportunity</strong>
+              <p id="result-bonus"></p>
+            </div>
+          </div>
+
+          <div id="modifier-results" hidden>
+            <h4>Hole modifiers</h4>
+            <div class="modifier-list" id="modifier-list"></div>
+            <p class="points-total" id="points-total"></p>
+          </div>
+
+          <button class="again" id="generate-again" type="button">
+            ↻ &nbsp; Generate another
+          </button>
+        </section>
+
+        <p class="safety-note">
+          Keep every challenge safe, course-legal, and friendly to your group.
+        </p>
+      </section>
+    </div>
+
+    <section class="group-panel" aria-labelledby="group-heading">
+      <div class="group-heading">
+        <div>
+          <p class="eyebrow">WEEK 5 · PLAYER AND GROUP SYSTEM</p>
+          <h2 id="group-heading">Group setup</h2>
+          <p class="group-subtitle">Add your golfers, set handicaps, and organize teams.</p>
+        </div>
+        <div class="data-buttons">
+          <button type="button" class="secondary-button" id="export-json">Download JSON backup</button>
+          <button type="button" class="secondary-button" id="import-json-button">Import JSON</button>
+          <input type="file" id="import-json-file" accept="application/json,.json" hidden>
+        </div>
+      </div>
+
+      <div class="manager-grid">
+        <section class="manager-card">
+          <h3>Create a team</h3>
+          <form id="team-form" class="compact-form">
+            <label for="new-team-name">Team name</label>
+            <div class="inline-form">
+              <input id="new-team-name" maxlength="24" placeholder="Example: The Eagles" required>
+              <button class="small-primary" type="submit">Add team</button>
+            </div>
+          </form>
+          <p class="small-note">Teams are saved in this browser and can be selected for Team Battle.</p>
+          <div id="team-list" class="saved-list"></div>
+        </section>
+
+        <section class="manager-card">
+          <h3>Add a player</h3>
+          <form id="player-form" class="compact-form">
+            <label for="player-name">Player name</label>
+            <input id="player-name" maxlength="32" placeholder="Enter a golfer's name" required>
+
+            <div class="fields player-fields">
+              <div>
+                <label for="player-handicap">Handicap</label>
+                <input id="player-handicap" type="number" min="0" max="54" step="0.1" value="0" required>
+              </div>
+              <div>
+                <label for="player-team">Team</label>
+                <select id="player-team"><option value="">No team</option></select>
+              </div>
+            </div>
+
+            <button class="small-primary add-player-button" type="submit">Add player</button>
+          </form>
+          <p class="small-note">Add up to 8 golfers. Handicap can be 0–54.</p>
+        </section>
+      </div>
+
+      <section class="roster-card">
+        <div class="roster-heading">
+          <div>
+            <h3>Players</h3>
+            <p id="player-count" class="small-note">0 of 8 players</p>
+          </div>
+          <div class="storage-status" id="storage-status" aria-live="polite">Saved in this browser</div>
+        </div>
+        <div id="player-list" class="player-list">
+          <p class="empty-state">No players yet. Add your group above.</p>
+        </div>
+      </section>
+
+      <p class="privacy-note">
+        Player and team information stays in this browser. Use Download JSON backup to save a copy or move it to another computer.
       </p>
     </section>
   </main>
